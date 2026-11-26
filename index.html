@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shaluna Groceries — Belanja Harian Lengkap, Harga Bersahabat</title>
+  <link rel="icon" type="image/png" href="logo-shaluna.png" />
+<link rel="apple-touch-icon" href="logo-shaluna.png" />
   <meta
     name="description"
     content="Shaluna Groceries Tegalsari, Ambulu. Katalog sembako dan kebutuhan harian live dari stok toko, pesan langsung via WhatsApp dengan layanan antar radius 10 km."
@@ -592,18 +594,27 @@
   border: 1px solid var(--border-soft);
   box-shadow: 0 6px 18px rgba(30, 78, 140, 0.08);
 }
+    .brand-logo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--border-soft);
+  background: #FFFFFF;
+}
+    
   </style>
 </head>
 <body>
   <header>
     <div class="container nav-inner">
       <a href="#" class="brand">
-        <div class="brand-badge">SG</div>
-        <div>
-          <span class="brand-name">Shaluna Groceries</span>
-          <span class="brand-sub">Tegalsari • Ambulu</span>
-        </div>
-      </a>
+  <img src="logo-shaluna.png" alt="Logo Shaluna Groceries" class="brand-logo-img" />
+  <div>
+    <span class="brand-name">Shaluna Groceries</span>
+    <span class="brand-sub">Tegalsari • Ambulu</span>
+  </div>
+</a>
       <div class="nav-right">
         <a href="#lokasi" class="btn btn-soft">Lokasi</a>
         <button type="button" class="btn btn-primary" onclick="openCartModal()">
