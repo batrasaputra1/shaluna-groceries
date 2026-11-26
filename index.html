@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaluna Groceries — Belanja Harian Lengkap, Harga Bersahabat</title>
+  <meta
+    name="description"
+    content="Shaluna Groceries di Tegalsari, Ambulu. Menyediakan sembako, kebutuhan harian, minyak goreng unggulan, serta layanan pesan dan antar radius 10 km untuk rumah tangga dan warung."
+  />
+  <meta property="og:title" content="Shaluna Groceries — Belanja Harian Lengkap, Harga Bersahabat" />
+  <meta
+    property="og:description"
+    content="Sembako & kebutuhan harian untuk rumah tangga dan warung di Tegalsari, Ambulu. Buka 08.00–22.00, bisa pesan via WhatsApp & antar radius 10 km."
+  />
+  <style>
+    :root {
+      --bg-page: #F6FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-pastel-blue: #E6F0FA;
+      --bg-pastel-mint: #E8F5F0;
+      --bg-pastel-warm: #FDF3E7;
+      --primary: #2B6CB0;
+      --primary-dark: #1E4E8C;
+      --primary-soft: #DBEAFE;
+      --text-main: #1A2B3C;
+      --text-muted: #52657A;
+      --border-soft: #DCE7F2;
+      --shadow-soft: 0 10px 28px rgba(30, 78, 140, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar */
+    header {
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), #4A90D9);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: block;
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-wa {
+      background-color: #1F8A5B;
+      color: #FFFFFF;
+    }
+
+    .btn-wa:hover {
+      background-color: #176E48;
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-pastel-blue);
+      color: var(--primary-dark);
+      border: 1px solid var(--border-soft);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 52px 0 42px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #FFFFFF 0%, #EBF3FC 65%, #E8F5F0 100%);
+      border: 1px solid var(--border-soft);
+      border-radius: 24px;
+      padding: 36px 28px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background-color: var(--bg-pastel-warm);
+      color: #8A5314;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4.5vw, 42px);
+      line-height: 1.2;
+      color: var(--text-main);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .hero-desc {
+      max-width: 720px;
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(43, 108, 176, 0.14);
+    }
+
+    .meta-item {
+      background-color: rgba(255, 255, 255, 0.82);
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .meta-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2px;
+    }
+
+    /* Sections */
+    section {
+      padding: 36px 0;
+    }
+
+    .section-head {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .featured-banner {
+      background: linear-gradient(120deg, var(--bg-pastel-warm), var(--bg-pastel-blue));
+      border: 1px solid var(--border-soft);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .featured-tag {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .info-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .info-list li {
+      padding: 7px 0;
+      border-bottom: 1px solid #EEF3F8;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    footer {
+      margin-top: 28px;
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-soft);
+      padding: 24px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-card {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <div class="brand-badge">SG</div>
+        <div>
+          <span class="brand-name">Shaluna Groceries</span>
+          <span class="brand-sub">Tegalsari • Ambulu</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#keunggulan">Keunggulan</a>
+        <a href="#produk">Produk & Layanan</a>
+        <a href="#lokasi">Lokasi & Jam Buka</a>
+      </nav>
+      <a
+        href="https://wa.me/6285601315567?text=Halo%20Shaluna%20Groceries%2C%20saya%20ingin%20bertanya%20%2F%20memesan%20kebutuhan%20harian."
+        target="_blank"
+        rel="noopener"
+        class="btn btn-wa"
+      >
+        Chat WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <span class="eyebrow">Sembako • Kebutuhan Harian • Antar Radius 10 Km</span>
+          <h1>Shaluna Groceries</h1>
+          <p class="tagline">Belanja Harian Lengkap, Harga Bersahabat</p>
+          <p class="hero-desc">
+            Mitra belanja terpercaya untuk rumah tangga sekitar maupun warung dan kulakan kecil di
+            area Tegalsari, Ambulu, dan sekitarnya. Tersedia sembako, kebutuhan harian, serta layanan
+            pesan dan antar langsung ke lokasi Anda.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/6285601315567?text=Halo%20Shaluna%20Groceries%2C%20saya%20mau%20pesan%20kebutuhan%20harian."
+              target="_blank"
+              rel="noopener"
+              class="btn btn-wa"
+            >
+              Pesan via WhatsApp (0856-0131-5567)
+            </a>
+            <a href="#lokasi" class="btn btn-secondary">
+              Lihat Alamat & Patokan Toko
+            </a>
+          </div>
+
+          <div class="meta-strip">
+            <div class="meta-item">
+              <div class="meta-label">Jam Operasional</div>
+              <div class="meta-val">Setiap Hari • 08.00 – 22.00</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Area Layanan Antar</div>
+              <div class="meta-val">Sekitar Toko / Radius 10 Km</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Produk Unggulan</div>
+              <div class="meta-val">Minyak Goreng & Sembako</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="keunggulan">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Mengapa Belanja di Shaluna Groceries?</h2>
+          <p class="section-sub">
+            Dirancang agar praktis untuk belanja keluarga sehari-hari maupun kulakan rutin warung.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3 class="card-title">Harga Bersaing & Promo Rutin</h3>
+            <p class="card-text">
+              Penawaran harga yang kompetitif untuk kebutuhan rumah tangga maupun warung kecil,
+              dilengkapi promo rutin secara berkala.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Stok Terpantau Rapi</h3>
+            <p class="card-text">
+              Ketersediaan barang dikelola secara teratur sehingga kebutuhan pokok dan harian lebih
+              mudah dipastikan sebelum Anda datang atau memesan.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Pesan via WA & Layanan Antar</h3>
+            <p class="card-text">
+              Pelayanan ramah dan cepat—bisa kirim daftar belanja lewat WhatsApp dan diantar dalam
+              jangkauan sekitar toko hingga radius 10 km.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="produk">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Produk & Layanan Utama</h2>
+          <p class="section-sub">
+            Hubungi WhatsApp resmi kami untuk mengecek ketersediaan stok dan penawaran terbaru hari ini.
+          </p>
+        </div>
+
+        <div class="featured-banner">
+          <div style="max-width: 660px;">
+            <span class="featured-tag">Produk Unggulan</span>
+            <h3 class="card-title" style="font-size: 20px;">Minyak Goreng</h3>
+            <p class="card-text">
+              Salah satu komoditas andalan di Shaluna Groceries untuk kebutuhan dapur rumah tangga
+              maupun stok jualan warung. Tersedia pilihan kemasan sesuai kebutuhan Anda.
+            </p>
+          </div>
+          <a
+            href="https://wa.me/6285601315567?text=Halo%20Shaluna%20Groceries%2C%20saya%20ingin%20tanya%20stok%20minyak%20goreng%20dan%20sembako."
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            Tanya Stok Minyak Goreng
+          </a>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">Sembako & Kebutuhan Harian</h3>
+            <p class="card-text">
+              Kebutuhan pokok dapur, bahan makanan, serta perlengkapan harian untuk menunjang
+              aktivitas rumah tangga setiap hari.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Layanan Pesanan & Warung / Kulakan</h3>
+            <p class="card-text">
+              Melayani pemesanan langsung maupun pengantaran area sekitar toko hingga radius 10 km
+              untuk rumah tangga dan warung/kulakan kecil.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lokasi">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Lokasi, Jam Operasional & Kanal Resmi</h2>
+          <p class="section-sub">
+            Kunjungi langsung ruko kami atau terhubung lewat kanal resmi Shaluna Groceries.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">Alamat & Patokan Lokasi</h3>
+            <ul class="info-list">
+              <li>
+                <strong>Alamat:</strong> Dusun Tutul RT 002 / RW 022, Desa Tegalsari, Kecamatan Ambulu
+              </li>
+              <li>
+                <strong>Patokan:</strong> Pertigaan barat RS Husada ke utara 2 perempatan, lalu ke
+                barat—lokasi ruko di utara jalan, nomor 3 dari perempatan
+              </li>
+              <li>
+                <strong>Jam Buka:</strong> Setiap hari, pukul 08.00 – 22.00
+              </li>
+              <li>
+                <strong>WhatsApp Resmi:</strong> 085601315567
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Temukan Kami di Peta & Media Sosial</h3>
+            <p class="card-text">
+              Ikuti informasi promo rutin dan pembaruan terbaru dari <strong>Shaluna Groceries</strong>
+              melalui akun resmi kami:
+            </p>
+            <ul class="info-list">
+              <li><strong>Google Maps:</strong> Shaluna Groceries</li>
+              <li><strong>TikTok:</strong> Shaluna Groceries</li>
+              <li><strong>Instagram:</strong> Shaluna Groceries</li>
+            </ul>
+            <div class="social-row">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Shaluna+Groceries+Tegalsari+Ambulu"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary"
+              >
+                Buka Google Maps
+              </a>
+              <a
+                href="https://wa.me/6285601315567"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-wa"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>Shaluna Groceries</strong> — Belanja Harian Lengkap, Harga Bersahabat
+      </div>
+      <div>
+        Tegalsari, Ambulu • Buka 08.00 – 22.00 • WA: 085601315567
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
