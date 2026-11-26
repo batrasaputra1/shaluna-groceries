@@ -582,6 +582,16 @@
       color: var(--text-muted);
       font-size: 14px;
     }
+
+    .hero-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 6px 18px rgba(30, 78, 140, 0.08);
+}
   </style>
 </head>
 <body>
@@ -605,33 +615,31 @@
 
   <main>
     <section class="hero">
-      <div class="container">
-        <div class="hero-card">
-          <span class="eyebrow">Sembako • Kebutuhan Harian • Antar Radius 10 Km</span>
-          <h1>Shaluna Groceries</h1>
-          <p class="tagline">Belanja Harian Lengkap, Harga Bersahabat</p>
-          <p class="hero-desc">
-            Pilih langsung produk yang tersedia di bawah ini, masukkan ke keranjang belanja, dan
-            kirim rincian pesanan otomatis ke WhatsApp kami untuk diambil di toko atau diantar ke rumah/warung Anda.
-          </p>
-          <div class="meta-strip">
-            <div class="meta-item">
-              <div class="meta-label">Jam Buka</div>
-              <div class="meta-val">Setiap Hari • 08.00 – 22.00</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">Layanan Antar</div>
-              <div class="meta-val">Sekitar Toko / Radius 10 Km</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">WhatsApp Resmi</div>
-              <div class="meta-val">0856-0131-5567</div>
-            </div>
-          </div>
+  <div class="container">
+    <div class="hero-card" style="padding: 16px;">
+      <img
+        src="banner-shaluna.jpg"
+        alt="Banner Shaluna Groceries - Belanja Harian Lengkap, Harga Bersahabat"
+        class="hero-banner-img"
+      />
+      <div class="meta-strip">
+        <div class="meta-item">
+          <div class="meta-label">Jam Buka</div>
+          <div class="meta-val">Setiap Hari • 08.00 – 22.00</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Layanan Antar</div>
+          <div class="meta-val">Siap Antar / Delivery Order (Radius 10 Km)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">WhatsApp Resmi</div>
+          <div class="meta-val">0856-0131-5567</div>
         </div>
       </div>
-    </section>
-
+    </div>
+  </div>
+</section>
+    
     <section class="catalog-section" id="katalog">
       <div class="container">
         <div class="catalog-topbar">
